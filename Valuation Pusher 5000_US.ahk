@@ -260,6 +260,26 @@ amendment_tranching:
 	SendInput, {Up 1}
 	SendInput, +{Tab 3}
 	SendInput, ^v
+	SendInput, {space}
+	SendInput, ^f
+	Sleep, 200
+	SendInput, add 
+	Sleep, 200
+	SendInput, {Escape}
+	SendInput, 	+{Tab 8} 
+	SendInput, ^x
+	SendInput, ^f
+	Sleep, 200
+	SendInput, stock split
+	Sleep, 200
+	SendInput, {Tab}
+	SendInput, {Enter}
+	SendInput, {Escape}
+	SendInput, +{Tab}
+	SendInput, {-}
+	SendInput, ^v
+	SendInput, ^{Left}
+	SendInput, {Left}
 Return
 
 amendment_unwind:
