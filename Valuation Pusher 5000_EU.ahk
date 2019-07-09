@@ -1,32 +1,42 @@
-;$$\    $$\          $$\                      $$\     $$\                           $$$$$$$\                      $$\                                 
-;$$ |   $$ |         $$ |                     $$ |    \__|                          $$  __$$\                     $$ |                                
-;$$ |   $$ |$$$$$$\  $$ |$$\   $$\  $$$$$$\ $$$$$$\   $$\  $$$$$$\  $$$$$$$\        $$ |  $$ |$$\   $$\  $$$$$$$\ $$$$$$$\   $$$$$$\   $$$$$$\        
-;\$$\  $$  |\____$$\ $$ |$$ |  $$ | \____$$\\_$$  _|  $$ |$$  __$$\ $$  __$$\       $$$$$$$  |$$ |  $$ |$$  _____|$$  __$$\ $$  __$$\ $$  __$$\       
-; \$$\$$  / $$$$$$$ |$$ |$$ |  $$ | $$$$$$$ | $$ |    $$ |$$ /  $$ |$$ |  $$ |      $$  ____/ $$ |  $$ |\$$$$$$\  $$ |  $$ |$$$$$$$$ |$$ |  \__|      
-;  \$$$  / $$  __$$ |$$ |$$ |  $$ |$$  __$$ | $$ |$$\ $$ |$$ |  $$ |$$ |  $$ |      $$ |      $$ |  $$ | \____$$\ $$ |  $$ |$$   ____|$$ |            
-;   \$  /  \$$$$$$$ |$$ |\$$$$$$  |\$$$$$$$ | \$$$$  |$$ |\$$$$$$  |$$ |  $$ |      $$ |      \$$$$$$  |$$$$$$$  |$$ |  $$ |\$$$$$$$\ $$ |            
-;    \_/    \_______|\__| \______/  \_______|  \____/ \__| \______/ \__|  \__|      \__|       \______/ \_______/ \__|  \__| \_______|\__|            
+; $$\    $$\          $$\                      $$\     $$\                           $$$$$$$\                      $$\                                 
+; $$ |   $$ |         $$ |                     $$ |    \__|                          $$  __$$\                     $$ |                                
+; $$ |   $$ |$$$$$$\  $$ |$$\   $$\  $$$$$$\ $$$$$$\   $$\  $$$$$$\  $$$$$$$\        $$ |  $$ |$$\   $$\  $$$$$$$\ $$$$$$$\   $$$$$$\   $$$$$$\        
+; \$$\  $$  |\____$$\ $$ |$$ |  $$ | \____$$\\_$$  _|  $$ |$$  __$$\ $$  __$$\       $$$$$$$  |$$ |  $$ |$$  _____|$$  __$$\ $$  __$$\ $$  __$$\       
+;  \$$\$$  / $$$$$$$ |$$ |$$ |  $$ | $$$$$$$ | $$ |    $$ |$$ /  $$ |$$ |  $$ |      $$  ____/ $$ |  $$ |\$$$$$$\  $$ |  $$ |$$$$$$$$ |$$ |  \__|      
+;   \$$$  / $$  __$$ |$$ |$$ |  $$ |$$  __$$ | $$ |$$\ $$ |$$ |  $$ |$$ |  $$ |      $$ |      $$ |  $$ | \____$$\ $$ |  $$ |$$   ____|$$ |            
+;    \$  /  \$$$$$$$ |$$ |\$$$$$$  |\$$$$$$$ | \$$$$  |$$ |\$$$$$$  |$$ |  $$ |      $$ |      \$$$$$$  |$$$$$$$  |$$ |  $$ |\$$$$$$$\ $$ |            
+;     \_/    \_______|\__| \______/  \_______|  \____/ \__| \______/ \__|  \__|      \__|       \______/ \_______/ \__|  \__| \_______|\__|            
 ;                                                                                                                                                     
 ;                                                                                                                                                     
 ;                                                                                                                                                     
-;                                                $$$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\                                                               
-;                                                $$  ____| $$$ __$$\ $$$ __$$\ $$$ __$$\                                                              
-;                                                $$ |      $$$$\ $$ |$$$$\ $$ |$$$$\ $$ |                                                             
-;                                                $$$$$$$\  $$\$$\$$ |$$\$$\$$ |$$\$$\$$ |                                                             
-;                                                \_____$$\ $$ \$$$$ |$$ \$$$$ |$$ \$$$$ |                                                             
-;                                                $$\   $$ |$$ |\$$$ |$$ |\$$$ |$$ |\$$$ |                                                             
-;                                                \$$$$$$  |\$$$$$$  /\$$$$$$  /\$$$$$$  /                                                             
-;                                                 \______/  \______/  \______/  \______/                                                              
-                                                                                                                                                 
-                                                                                                                                                   
-;Create by Brian Hart @ all rights reserved
-;PitchBook Data Inc.
-;Fight Club Research Team
-;Please contact Brian.Hart@pitchbook.com to report any issues or update requests regarding this script or if you'd just like to talk. 
+;                                                 $$$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\                                                               
+;                                                 $$  ____| $$$ __$$\ $$$ __$$\ $$$ __$$\                                                              
+;                                                 $$ |      $$$$\ $$ |$$$$\ $$ |$$$$\ $$ |                                                             
+;                                                 $$$$$$$\  $$\$$\$$ |$$\$$\$$ |$$\$$\$$ |                                                             
+;                                                 \_____$$\ $$ \$$$$ |$$ \$$$$ |$$ \$$$$ |                                                             
+;                                                 $$\   $$ |$$ |\$$$ |$$ |\$$$ |$$ |\$$$ |                                                             
+;                                                 \$$$$$$  |\$$$$$$  /\$$$$$$  /\$$$$$$  /                                                             
+;                                                  \______/  \______/  \______/  \______/                                                              
+;                                                                                                                                                 
+; 
+; 
+;				      :::::::::: :::    :::          :::::::::: ::::::::: ::::::::::: ::::::::::: ::::::::::: ::::::::  ::::    ::: 
+;				     :+:        :+:    :+:          :+:        :+:    :+:    :+:         :+:         :+:    :+:    :+: :+:+:   :+:  
+;				    +:+        +:+    +:+          +:+        +:+    +:+    +:+         +:+         +:+    +:+    +:+ :+:+:+  +:+   
+;				   +#++:++#   +#+    +:+          +#++:++#   +#+    +:+    +#+         +#+         +#+    +#+    +:+ +#+ +:+ +#+    
+;				  +#+        +#+    +#+          +#+        +#+    +#+    +#+         +#+         +#+    +#+    +#+ +#+  +#+#+#     
+;				 #+#        #+#    #+#          #+#        #+#    #+#    #+#         #+#         #+#    #+#    #+# #+#   #+#+#      
+;				##########  ########           ########## ######### ###########     ###     ########### ########  ###    ####       
+;
+;                                                                                                                                                 
+; Create by Brian Hart @ all rights reserved
+; PitchBook Data Inc.
+; Fight Club Research Team
+; Please contact Brian.Hart@pitchbook.com to report any issues or update requests regarding this script or if you'd just like to talk. 
 
 
-;					                                      -----TABLE OF CONTENTS-----
-;###############################################################################################################################################
+;  					                                      -----TABLE OF CONTENTS-----
+; ###############################################################################################################################################
 
 ;	1. Fight Club Tool Functions 
 ;	2. RTS Round Functions
@@ -35,16 +45,16 @@
 
 #P::Pause
 
-;###############################################################################################################################################
+; ###############################################################################################################################################
 
-;Returns initials (update before use)
+; Returns initials (update before use)
 
 label_initials:
 	SendInput, B.J.H:
 return
 
 ;                                                     -----FIGHT CLUB TOOL FUNCTIONS-----
-;###############################################################################################################################################
+; ###############################################################################################################################################
 
 ; Auto Timestamp/Initials: Shift + Control + d
 ; For different formatting of time, see: https://www.autohotkey.com/docs/commands/FormatTime.htm
@@ -62,7 +72,7 @@ auto_timestamp:
 return
 
 
-;Today's Date: td + Space
+; Today's Date: td + Space
 ;
 todays_date:
 ::td::
@@ -71,7 +81,7 @@ todays_date:
 return
 
 
-;Shares issued: sh + Space
+; Shares issued: sh + Space
 ;
 shares_issued:
 ::sh::
@@ -82,7 +92,7 @@ shares_issued:
 return
 
 
-;BSA warrants issued: Shift + Control + w
+; BSA warrants issued: Shift + Control + w
 ;
 warrants_issued:
 ^+w::
@@ -92,14 +102,14 @@ warrants_issued:
 	SendInput, with BSA warrants attached
 return
 
-;BSA warrants exercised: du + Space
+; BSA warrants exercised: du + Space
 ;
 warrants_exercised:
 ::du::
 	SendInput, due to exercise of BSA warrants
 return
 
-;Create Ordinary Share Class: Shift + Control + o
+; Create Ordinary Share Class: Shift + Control + o
 ;
 ord_shares:
 ^+o::
@@ -115,7 +125,7 @@ ord_shares:
 	SendInput {F5}
 return
 
-;Shares issued at incorporation: inc + Space
+; Shares issued at incorporation: inc + Space
 ;
 inc_shares:
 ::inc::
@@ -124,7 +134,7 @@ inc_shares:
 	SendInput, {Space}1 (par) at incorporation.
 return
 
-;Shares issued at incorporation note: Shift + Control + i
+; Shares issued at incorporation note: Shift + Control + i
 ;
 inc_note:
 ^+i::
@@ -150,7 +160,7 @@ inc_note:
 	SendInput, {Space}%ParValue% (par) at incorporation.
 return
 
-;Shares issued note: Shift + Control + n
+; Shares issued note: Shift + Control + n
 ;
 share_note:
 ^+n::
@@ -182,16 +192,16 @@ share_note:
 	SendInput, {Space}%OIP% on{Space}
 return
 
-;Round Realization: capreal + Space
+; Round Realization: capreal + Space
 ;
 cap_realization:
 ::capreal::
 	SendInput, Capital increase definitively realized on
 return
 ;                                                        -----RTS ROUND FUNCTIONS-----
-;###############################################################################################################################################                                             
+; ###############################################################################################################################################                                             
 
-;Create New Dummy Round: Shift + Control + u
+; Create New Dummy Round: Shift + Control + u
 ;
 dummy_round:
 ^+u::
@@ -212,7 +222,7 @@ dummy_round:
 	SendInput, FC Dummy Round. ///
 return
 
-;Estimated Round Details: Shift + Control + `
+; Estimated Round Details: Shift + Control + `
 ;
 estimated_round:
 ^+`::
@@ -238,7 +248,7 @@ estimated_round:
 	SendInput {Space}an estimated 	
 return
 
-;Round with Estimated Convertible Debt: Shift + Control + d
+; Round with Estimated Convertible Debt: Shift + Control + d
 ;
 debt_round:
 ^+.::
@@ -262,9 +272,9 @@ debt_round:
 return
 
 ;                                                         -----ACT LOG FUNCTIONS-----
-;###############################################################################################################################################                                             
+; ###############################################################################################################################################                                             
 
-;Act log settings: Shift + Control + a
+; Act log settings: Shift + Control + a
 ;
 act_log_settings:
 ^+a::
@@ -287,7 +297,7 @@ act_log_settings:
 return
 
 
-;Top-line Valuation act log note: Shift + Control + t
+; Top-line Valuation act log note: Shift + Control + t
 ;
 top_line:
 ^+t::
@@ -298,7 +308,7 @@ top_line:
 return
 
 ;                                                   -----FC RESEARCH REQUEST FUNCTIONS-----
-;###############################################################################################################################################
+; ###############################################################################################################################################
                                                
 
 client_request:

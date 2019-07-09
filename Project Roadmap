@@ -1,0 +1,96 @@
+Create by Brian Hart @ all rights reserved
+PitchBook Data Inc.
+Fight Club Research Team
+Please contact Brian.Hart@pitchbook.com to report any issues or update requests regarding this script or if you'd just like to talk. 
+
+
+
+
+PROJECT ROADMAP
+---------------------------------------------------------
+
+share_note function improvements:
+	1. Get share class name
+	2. Handle unknown share price case 
+
+warrant_round:
+	1. Change the note to read: "The company raised EUR $$$ through a combination of warrants and venture funding"
+
+Functions to copy content to round details:
+	- Define several ways to click the Update RTS button based on different cases:
+		- Debt Assumption
+		- Round Assumption
+		- Warrant Assumption
+
+Switch Window function:
+	1. Define a variable with the name of the company as found in the Fight Club tool
+	2. Define a variable with the current round number.
+	3. Switch to the RTS chrome window based on the name of the company.
+	4. Open round details window indexing on the round number of the current round.
+
+Find Funding Usage function:
+	1. Find the funding usage sentence and cut it.
+	2. Click the create round note button.
+	3. Paste back in the funding usage sentence at the end of the funding note and save.
+
+Check If Last round function:
+	1. Get Round numbers
+	2. Check if the current round is the highest round number.
+
+Debt Assumption function:
+	1. Define a variable with the RTS round amount
+	2. Define a variable as the Fight Club tool amount
+	3. Define a variable as the difference between the Fight Club tool amount and the RTS round amount
+	4. Call the Switch Window function.
+	5. Put difference into the debt fields on the round details and set debt to "other".
+	6. Put former RTS round amount back into round amount fields.
+	7. Call the debt_round function to set the correct fields.
+	8. Call the Find Funding Usage function.
+	9. Copy round note and close round details window.
+	10. Call Check If Last Round function.
+	11. If it's the lastest round, open round details and paste in new round note.
+	12. Call Create Act Log and Enter Relevant Settings function.
+
+Round Assumption Input function:
+	1. Define a variable as the RTS round amount.
+	2. Divide the RTS round amount by the number of shares and input it into the pricing cells.
+	3. Call the share_note function.
+
+Round Assumption function:
+	1. Call the Switch Window function.
+	2. Call the estimated_round function
+	3. Call the Find Funding Usage function.
+	4. Copy round note and close round details window.
+	5. Call Check If Last Round function.
+	6. If it's the lastest round, open round details and paste in new round note.
+	7. Call Create Act Log and Enter Relevant Settings function.
+
+Warrant Assumption function:
+	1. Define a variable with the RTS round amount
+	2. Define a variable as the Fight Club tool amount
+	3. Define a variable as the difference between the Fight Club tool amount and the RTS round amount
+	4. Define a variable with the round note from the Fight Club Tool.
+	5. Call the Switch Window function.
+	6. Put former RTS round amount back into round amount fields.
+	7. Call warrant_round function.
+	8. Find tranche section and create new tranche
+	9. Input diffence into tranche amount.
+	10. Set relevant fields to the correct settings.
+	11. Go to the tranche note and call the auto_timestamp function.
+	12. Paste round note into the tranche note section.
+	13. Go to external note section and print: "The company raised EUR " + (%warrant_amount% * 1,000,000) + "in warrants on " 
+	14. Save tranche
+	15. Call the Find Funding Usage function.
+	16. Copy round note and close round details window.
+	17. Call Check If Last Round function.
+	18. If it's the lastest round, open round details and paste in new round note.
+	19. Call Create Act Log and Enter Relevant Settings function.
+
+Create Act Log and Enter Relevant Settings function:
+	1. Find Add Activity button and create new act log
+	2. Go to correct field and call the act_log_settings function
+	3. Add initials to the Scrub and QA fields and click check marks
+	4. Save act log
+	5. Set act log to closed
+	6. Save and don't open new act log.
+	7. Copy pbID.
