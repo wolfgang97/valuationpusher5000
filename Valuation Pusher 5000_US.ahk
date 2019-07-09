@@ -395,4 +395,3 @@ past_common:
 	Sendinput, PC 
 	Sendinput, {Space}%pc%
 Return
-
