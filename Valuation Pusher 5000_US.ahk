@@ -1,4 +1,4 @@
-﻿
+﻿;hi
 ; This is a comprehensive script that contains commands pertaining to:
 ;    Company: PitchBook Data
 ;   Department: Research
