@@ -415,3 +415,42 @@ past_common:
 	Sendinput, PC 
 	Sendinput, {Space}%pc%
 Return
+
+first_round:
+::fr::
+	clipboard := ""
+	Sendinput, ^a
+	Sendinput, ^c
+	ClipWait
+	cso := Clipboard
+	cso := StrReplace(cso, ",")
+	Clipboard := ""
+	SendInput, {Down}
+	SendInput, ^c 
+	ClipWait
+	pso := Clipboard
+	pso := StrReplace(pso, ",")
+	SendInput, ^f
+	Sleep, 200
+	SendInput, stock split
+	Sleep, 200
+	SendInput, {Escape}
+Return
+	SendInput, {Tab 4} 
+	SendInput, {Down}
+	Clipboard := ""
+	SendInput, ^a
+	SendInput, ^c
+	Clipwait
+	ppso := Clipboard
+	ppso := StrReplace(ppso, ",")
+	SendInput, {Up}
+	SendInput, +{Tab 4}
+	fr := cso - pso + ppso
+	SendInput, {Enter}
+	SendInput, FR 
+	SendInput, {Space}%fr%
+
+
+
+
