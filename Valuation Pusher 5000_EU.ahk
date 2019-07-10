@@ -202,15 +202,21 @@ return
 ; Get Company Name Function
 ;
 get_comp_name:
+::qwer::
 	SendInput, ^f
 	Sleep 200
 	SendInput, |
 	Sleep 200
+	SendInput, {Tab}
+	SendInput, {Enter}
+	SendInput, {Escape}
 	SendInput, ^+{Left}
 	Clipboard := ""
 	SendInput, ^c
 	ClipWait
-	comp_name := Clipboard		
+	comp_name := Clipboard
+	window_name := "PitchBook RTS " . comp_name . "- Google Chrome"
+	MsgBox, %window_name%
 return
 ;                                                        -----RTS ROUND FUNCTIONS-----
 ; ###############################################################################################################################################                                             
