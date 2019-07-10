@@ -144,7 +144,7 @@ inc_note:
 	Sleep 200
 	SendInput, {Escape}
 	SendInput, +{Tab 6}
-	clipboard := ""
+	Clipboard := ""
 	SendInput, ^c
 	ClipWait
 	ParValue := clipboard
@@ -170,15 +170,15 @@ share_note:
 	Sleep 200
 	SendInput, {Escape}
 	SendInput, +{Tab 3}
-	clipboard := ""
+	Clipboard := ""
 	SendInput, ^c
 	ClipWait
-	OIP := clipboard 
+	OIP := Clipboard 
 	SendInput, +{Tab 4}
-	clipboard := ""
+	Clipboard := ""
 	SendInput, ^c
 	ClipWait
-	NumShares := clipboard
+	NumShares := Clipboard
 	SendInput, ^f
 	Sleep 200
 	SendInput, Stock Split
@@ -197,6 +197,26 @@ return
 cap_realization:
 ::capreal::
 	SendInput, Capital increase definitively realized on
+return
+
+; Get Company Name Function
+;
+get_comp_name:
+::qwer::
+	SendInput, ^f
+	Sleep 200
+	SendInput, |
+	Sleep 200
+	SendInput, {Tab}
+	SendInput, {Enter}
+	SendInput, {Escape}
+	SendInput, ^+{Left}
+	Clipboard := ""
+	SendInput, ^c
+	ClipWait
+	comp_name := Clipboard
+	window_name := "PitchBook RTS " . comp_name . "- Google Chrome"
+	MsgBox, %window_name%
 return
 ;                                                        -----RTS ROUND FUNCTIONS-----
 ; ###############################################################################################################################################                                             
