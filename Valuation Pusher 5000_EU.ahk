@@ -34,7 +34,6 @@
 ; Fight Club Research Team
 ; Please contact Brian.Hart@pitchbook.com to report any issues or update requests regarding this script or if you'd just like to talk. 
 
-
 ;  					                                      -----TABLE OF CONTENTS-----
 ; ###############################################################################################################################################
 
@@ -43,34 +42,14 @@
 ;	3. Act Log Functions
 ;	4. FC Research Request Functions
 
-#P::Pause
-
 ; ###############################################################################################################################################
 
-; Returns initials (update before use)
-
-label_initials:
-	SendInput, B.J.H:
-return
+; User's Initials (update before use)
+;
+global user_initials := "B.J.H"
 
 ;                                                     -----FIGHT CLUB TOOL FUNCTIONS-----
 ; ###############################################################################################################################################
-
-; Auto Timestamp/Initials: Shift + Control + d
-; For different formatting of time, see: https://www.autohotkey.com/docs/commands/FormatTime.htm
-;
-auto_timestamp:
-^+d::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
-	FormatTime, ShortTime,, M/d/yy
-	SendInput, %ShortTime%
-	SendInput, %A_Space%
-	Gosub, label_initials
-	SendInput, %A_Space%
-return
-
 
 ; Today's Date: td + Space
 ;
@@ -80,25 +59,26 @@ todays_date:
 	SendInput, %ShortTime%
 return
 
+; Auto Timestamp/Initials: Shift + Control + d
+; For different formatting of time, see: https://www.autohotkey.com/docs/commands/FormatTime.htm
+;
+auto_timestamp:
+^+d::
+	Gosub, todays_date
+	SendInput, {Space}%user_initials%:{Space}
+return
 
 ; Shares issued: sh + Space
 ;
 shares_issued:
 ::sh::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput, shares issued @ EUR  
 return
-
 
 ; BSA warrants issued: Shift + Control + w
 ;
 warrants_issued:
 ^+w::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput, with BSA warrants attached
 return
 
@@ -107,6 +87,13 @@ return
 warrants_exercised:
 ::du::
 	SendInput, due to exercise of BSA warrants
+return
+
+; Round Realization: capreal + Space
+;
+cap_realization:
+::capreal::
+	SendInput, Capital increase definitively realized on
 return
 
 ; Create Ordinary Share Class: Shift + Control + o
@@ -123,15 +110,6 @@ ord_shares:
 	SendInput, {Tab}
 	SendInput, {Enter}
 	SendInput {F5}
-return
-
-; Shares issued at incorporation: inc + Space
-;
-inc_shares:
-::inc::
-	SendInput, ordinary{Space} 
-	Gosub, shares_issued
-	SendInput, {Space}1 (par) at incorporation.
 return
 
 ; Shares issued at incorporation note: Shift + Control + i
@@ -190,13 +168,6 @@ share_note:
 	SendInput, %NumShares%{Space} 
 	Gosub, shares_issued
 	SendInput, {Space}%OIP% on{Space}
-return
-
-; Round Realization: capreal + Space
-;
-cap_realization:
-::capreal::
-	SendInput, Capital increase definitively realized on
 return
 
 ;Gets Round Information from the Fight Club Tool
