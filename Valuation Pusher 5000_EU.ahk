@@ -29,7 +29,7 @@
 ;				##########  ########           ########## ######### ###########     ###     ########### ########  ###    ####       
 ;
 ;                                                                                                                                                 
-; Create by Brian Hart @ all rights reserved
+; Created by Brian Hart @ all rights reserved
 ; PitchBook Data Inc.
 ; Fight Club Research Team
 ; Please contact Brian.Hart@pitchbook.com to report any issues or update requests regarding this script or if you'd just like to talk. 
@@ -201,8 +201,7 @@ return
 
 ; Get Company Name Function
 ;
-get_comp_name:
-::qwer::
+switch_window:
 	SendInput, ^f
 	Sleep 200
 	SendInput, |
@@ -216,8 +215,15 @@ get_comp_name:
 	ClipWait
 	comp_name := Clipboard
 	window_name := "PitchBook RTS " . comp_name . "- Google Chrome"
-	MsgBox, %window_name%
+	WinActivate, %window_name%
+	MouseClick, Left, 295, 218
 return
+
+^!z::
+	MouseGetPos, Px, Py
+	MsgBox, %Px%, %Py%
+return
+
 ;                                                        -----RTS ROUND FUNCTIONS-----
 ; ###############################################################################################################################################                                             
 

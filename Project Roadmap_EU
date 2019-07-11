@@ -23,10 +23,10 @@ Functions to copy content to round details:
 		- Warrant Assumption
 
 Switch Window function:
-	1. Define a variable with the name of the company as found in the Fight Club tool
-	2. Define a variable with the current round number.
-	3. Switch to the RTS chrome window based on the name of the company.
-	4. Open round details window indexing on the round number of the current round.
+	[x] Define a variable with the name of the company as found in the Fight Club tool
+	[] Define a variable with the current round number.
+	[x] Switch to the RTS chrome window based on the name of the company.
+	[] Open round details window indexing on the round number of the current round.
 
 Find Funding Usage function:
 	1. Find the funding usage sentence and cut it.
