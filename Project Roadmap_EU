@@ -24,7 +24,7 @@ Functions to copy content to round details:
 
 Switch Window function:
 	[x] Define a variable with the name of the company as found in the Fight Club tool
-	[] Define a variable with the current round number.
+	[x] Define a variable with the current round number.
 	[x] Switch to the RTS chrome window based on the name of the company.
 	[] Open round details window indexing on the round number of the current round.
 

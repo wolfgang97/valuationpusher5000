@@ -199,7 +199,36 @@ cap_realization:
 	SendInput, Capital increase definitively realized on
 return
 
-; Get Company Name Function
+;Gets Round Information from the Fight Club Tool
+;
+get_FC_round_info:
+^!z::
+	SendInput, ^f
+	Sleep 200
+	SendInput, Round #
+	Sleep 200
+	SendInput, {Escape}
+	SendInput, ^+{Right 47}
+	Clipboard := ""
+	SendInput, ^c
+	ClipWait
+	FC_round_info_raw := []
+	FC_round_info_raw := StrSplit(Clipboard, A_Tab)
+
+	Loop, 11 
+	{
+		FC_round_info_raw.Delete(6 + A_Index)
+	}
+
+	FC_round_info := {}
+
+	Loop, 6
+	{
+		FC_round_info[FC_round_info_raw[A_Index]] := FC_round_info_raw[A_Index + 17]
+	}
+return
+
+; Switch Window
 ;
 switch_window:
 	SendInput, ^f
@@ -217,11 +246,6 @@ switch_window:
 	window_name := "PitchBook RTS " . comp_name . "- Google Chrome"
 	WinActivate, %window_name%
 	MouseClick, Left, 295, 218
-return
-
-^!z::
-	MouseGetPos, Px, Py
-	MsgBox, %Px%, %Py%
 return
 
 ;                                                        -----RTS ROUND FUNCTIONS-----
