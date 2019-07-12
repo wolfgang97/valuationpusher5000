@@ -9,8 +9,12 @@ Please contact Brian.Hart@pitchbook.com to report any issues or update requests 
 PROJECT ROADMAP
 ---------------------------------------------------------
 
+[] Break Helper Functions out into new script
+[] Change searches on "Stock split" to "Pages"
+[] Use if WinExist to make sure that scripts are only running in "Fight Club - Google Chrome" and "PitchBook RTS - Google Chrome"
+
 share_note function improvements:
-	1. Get share class name
+	[x] Get share class name
 	2. Handle unknown share price case 
 
 warrant_round:

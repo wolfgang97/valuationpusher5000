@@ -116,7 +116,22 @@ return
 ;
 get_FC_round_info()
 {
-	SendInput, ^+{Right 57}
+	SendInput, ^+{Right 44}
+	Clipboard := ""
+	SendInput, ^c
+	ClipWait
+	element_str := Clipboard
+
+	While element_str != "Update RTS"
+	{
+		SendInput, ^+{Right}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		element_str := Clipboard
+		element_str := SubStr(element_str, -9)
+	}
+	
 	Clipboard := ""
 	SendInput, ^c
 	ClipWait
@@ -138,8 +153,6 @@ get_FC_round_info()
 	FC_round_info["Round Amount"] := temp_array[3]
 	FC_round_info["Post-Money Val"] := temp_array[4]
 	FC_round_info["% Acquired"] := temp_array[5]
-
-	; Stock`r`nSeries Type
 	
 	return FC_round_info
 }
@@ -205,7 +218,7 @@ share_note:
 	Sleep 200
 	SendInput, {Escape}
 	SendInput, {Tab 2}
-	SendInput, %NumShares%
+	SendInput, 		1,234 Series A shares issued @ EUR 100 on 
 	SendInput, {Space}%stock_series%{Space}
 	Gosub, shares_issued
 	SendInput, {Space}%OIP% on{Space}
@@ -214,6 +227,7 @@ return
 ; Switch Window
 ;
 switch_window:
+^!z::
 	SendInput, ^f
 	Sleep 200
 	SendInput, |
@@ -221,7 +235,7 @@ switch_window:
 	SendInput, {Tab}
 	SendInput, {Enter}
 	SendInput, {Escape}
-	SendInput, ^+{Left}
+	SendInput, ^+{Home}
 	Clipboard := ""
 	SendInput, ^c
 	ClipWait
