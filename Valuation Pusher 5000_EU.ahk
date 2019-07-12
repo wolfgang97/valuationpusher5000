@@ -112,6 +112,39 @@ ord_shares:
 	SendInput {F5}
 return
 
+;Gets Round Information from the Fight Club Tool
+;
+get_FC_round_info()
+{
+	SendInput, ^+{Right 57}
+	Clipboard := ""
+	SendInput, ^c
+	ClipWait
+	FC_round_info_raw := []
+	FC_round_info_raw := StrSplit(Clipboard, A_Tab)
+	temp_str := FC_round_info_raw[27]
+	temp_array := []
+	temp_array := StrSplit(temp_str, "`r`n")
+
+	FC_round_info := {}
+
+	Loop, 17
+	{
+		FC_round_info[FC_round_info_raw[A_Index]] := FC_round_info_raw[A_Index + 17]
+	}
+
+	FC_round_info["Price per Share"] := FC_round_info["Post-Money Val"]
+	FC_round_info["Pre-Money Val"] := temp_array[2]
+	FC_round_info["Round Amount"] := temp_array[3]
+	FC_round_info["Post-Money Val"] := temp_array[4]
+	FC_round_info["% Acquired"] := temp_array[5]
+
+	; Stock`r`nSeries Type
+	
+	return FC_round_info
+}
+	
+
 ; Shares issued at incorporation note: Shift + Control + i
 ;
 inc_note:
@@ -159,44 +192,23 @@ share_note:
 	NumShares := Clipboard
 	SendInput, ^f
 	Sleep 200
-	SendInput, Stock Split
+	SendInput, Round {#}
 	Sleep 200
 	SendInput, {Tab}
 	SendInput, {Enter}
 	SendInput, {Escape}
-	SendInput, +{Tab}
-	SendInput, %NumShares%{Space} 
-	Gosub, shares_issued
-	SendInput, {Space}%OIP% on{Space}
-return
-
-;Gets Round Information from the Fight Club Tool
-;
-get_FC_round_info:
-^!z::
+	FC_round_info := get_FC_round_info()
+	stock_series := FC_round_info["Stock`r`nSeries Type"]
 	SendInput, ^f
 	Sleep 200
-	SendInput, Round #
+	SendInput, Pages
 	Sleep 200
 	SendInput, {Escape}
-	SendInput, ^+{Right 47}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	FC_round_info_raw := []
-	FC_round_info_raw := StrSplit(Clipboard, A_Tab)
-
-	Loop, 11 
-	{
-		FC_round_info_raw.Delete(6 + A_Index)
-	}
-
-	FC_round_info := {}
-
-	Loop, 6
-	{
-		FC_round_info[FC_round_info_raw[A_Index]] := FC_round_info_raw[A_Index + 17]
-	}
+	SendInput, {Tab 2}
+	SendInput, %NumShares%
+	SendInput, {Space}%stock_series%{Space}
+	Gosub, shares_issued
+	SendInput, {Space}%OIP% on{Space}
 return
 
 ; Switch Window
@@ -218,6 +230,24 @@ switch_window:
 	WinActivate, %window_name%
 	MouseClick, Left, 295, 218
 return
+
+;Open Round Details
+;
+open_round_details:
+	Gosub, switch_window
+	SendInput, ^f
+	Sleep 200
+	SendInput, #
+	Sleep 200
+	SendInput, {Escape}
+	FC_round_info := Gosub, get_FC_round_info
+	round_number := FC_round_info[Round #]
+	SendInput, ^f
+	Sleep 200
+	SendInput, %round_number%
+	Sleep 200
+	SendInput, {Tab 12}
+	SendInput, {Enter}
 
 ;                                                        -----RTS ROUND FUNCTIONS-----
 ; ###############################################################################################################################################                                             
