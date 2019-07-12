@@ -224,7 +224,7 @@ copy_and_paste_table:
 Return
 
 copy_and_paste_price:
-::sf:: 
+::sf1:: 
 	SendInput, ^v
 	SendInput, {Right}
 	SendInput, ^v
@@ -299,16 +299,16 @@ amendment_tranching:
 	SendInput, ^v
 	SendInput, {space}
 	SendInput, ^f
-	Sleep, 200
+	Sleep, 1000
 	SendInput, add 
-	Sleep, 200
+	Sleep, 1000
 	SendInput, {Escape}
 	SendInput, 	+{Tab 8} 
 	SendInput, ^x
 	SendInput, ^f
-	Sleep, 200
+	Sleep, 1000
 	SendInput, stock split
-	Sleep, 200
+	Sleep, 1000
 	SendInput, {Tab}
 	SendInput, {Enter}
 	SendInput, {Escape}
@@ -454,7 +454,7 @@ past_common:
 Return
 
 first_round:
-::fr::
+::fr1::
 	clipboard := ""
 	Sendinput, ^a
 	Sendinput, ^c
@@ -468,11 +468,10 @@ first_round:
 	pso := Clipboard
 	pso := StrReplace(pso, ",")
 	SendInput, ^f
-	Sleep, 200
+	Sleep, 1000
 	SendInput, stock split
-	Sleep, 200
+	Sleep, 1000
 	SendInput, {Escape}
-Return
 	SendInput, {Tab 4} 
 	SendInput, {Down}
 	Clipboard := ""
@@ -487,7 +486,14 @@ Return
 	SendInput, {Enter}
 	SendInput, FR 
 	SendInput, {Space}%fr%
+Return
 
-
+type_message:
+::rbr::
+    SendInput, Please see the request below, it came in through the Research Inbox.
+    SendInput, {Return}
+    SendInput, Data Source: Research Inbox
+    SendInput {Return}
+return
 
 
