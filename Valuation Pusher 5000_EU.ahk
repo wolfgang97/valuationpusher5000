@@ -230,6 +230,7 @@ vanilla_round:
 ~LButton & v::
 	IfWinActive, Fight Club - Google Chrome
 	{
+		KeyWait, v
 		Sleep, 200
 		MouseGetPos, Px, Py
 		MouseMove, 0, %Py%
@@ -258,9 +259,6 @@ return
 ;
 dummy_round:
 ^+u::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput, {Tab}
 	SendInput, c
 	SendInput, {Tab}
@@ -279,9 +277,6 @@ return
 ;
 estimated_round:
 ^+`::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput ^f
 	Sleep 200
 	SendInput PV Confirm
@@ -305,9 +300,6 @@ return
 ;
 debt_round:
 ^+.::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput ^f
 	Sleep 200
 	SendInput, funding
@@ -331,9 +323,6 @@ return
 ;
 act_log_settings:
 ^+a::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput {Tab}
 	SendInput, Co VC - N
 	SendInput {Tab}
