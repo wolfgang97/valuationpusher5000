@@ -40,33 +40,17 @@ Please contact Brian.Hart@pitchbook.com to report any issues or update requests 
 ;
 get_FC_round_info()
 {
-	SendInput, ^+{Right 44}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	element_str := Clipboard
-
-	While element_str != "Update RTS"
-	{
-		SendInput, ^+{Right}
-		Clipboard := ""
-		SendInput, ^c
-		ClipWait
-		element_str := Clipboard
-		element_str := SubStr(element_str, -9)
-	}
-	
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
 	FC_round_info_raw := []
+	Clipboard := ""
+	SendInput, ^c
+	ClipWait
 	FC_round_info_raw := StrSplit(Clipboard, A_Tab)
+	
 	temp_str := FC_round_info_raw[27]
 	temp_array := []
 	temp_array := StrSplit(temp_str, "`r`n")
 
 	FC_round_info := {}
-
 	Loop, 17
 	{
 		FC_round_info[FC_round_info_raw[A_Index]] := FC_round_info_raw[A_Index + 17]
@@ -85,9 +69,11 @@ get_FC_round_info()
 ;
 switch_to_RTS_window()
 {
+	SendInput, {PgUp 3}
 	SendInput, ^f
 	Sleep 200
 	SendInput, |
+	SendInput, {Enter}
 	Sleep 200
 	SendInput, {Tab}
 	SendInput, {Enter}
@@ -100,26 +86,23 @@ switch_to_RTS_window()
 	window_name := "PitchBook RTS " . comp_name . "- Google Chrome"
 	WinActivate, %window_name%
 	MouseClick, Left, 295, 218
+	Sleep, 3000
 	return	
 }
 
 ;Open Round Details
 ;
-open_round_details()
+open_round_details(FC_round_info)
 {
-	switch_to_RTS_window()
+	round_date := Trim(FC_round_info["Date"])
 	SendInput, ^f
-	Sleep 200
-	SendInput, #
-	Sleep 200
+	Sleep, 200
+	SendInput, %round_date%
+	Sleep, 200
 	SendInput, {Escape}
-	FC_round_info := Gosub, get_FC_round_info
-	round_number := FC_round_info[Round #]
-	SendInput, ^f
-	Sleep 200
-	SendInput, %round_number%
-	Sleep 200
-	SendInput, {Tab 12}
+	SendInput, {Tab 7}
 	SendInput, {Enter}
+	Sleep, 1000
+	SendInput, #{Up}
 	return
 }

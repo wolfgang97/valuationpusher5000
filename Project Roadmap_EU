@@ -9,9 +9,9 @@ Please contact Brian.Hart@pitchbook.com to report any issues or update requests 
 PROJECT ROADMAP
 ---------------------------------------------------------
 
-[] Break Helper Functions out into new script
-[] Change searches on "Stock split" to "Pages"
-[] Use if WinExist to make sure that scripts are only running in "Fight Club - Google Chrome" and "PitchBook RTS - Google Chrome"
+[x] Break Helper Functions out into new script
+[x] Change searches on "Stock split" to "Pages"
+[x] Use if WinExist to make sure that scripts are only running in "Fight Club - Google Chrome" and "PitchBook RTS - Google Chrome"
 
 share_note function improvements:
 	[x] Get share class name
@@ -21,16 +21,18 @@ warrant_round:
 	1. Change the note to read: "The company raised EUR $$$ through a combination of warrants and venture funding"
 
 Functions to copy content to round details:
-	- Define several ways to click the Update RTS button based on different cases:
-		- Debt Assumption
-		- Round Assumption
-		- Warrant Assumption
+	[] Define several ways to click the Update RTS button based on different cases:
+		[x] Vanilla Round
+		[] Debt Assumption
+		[] Round Assumption
+		[] Warrant Assumption
 
 Switch Window function:
 	[x] Define a variable with the name of the company as found in the Fight Club tool
 	[x] Define a variable with the current round number.
 	[x] Switch to the RTS chrome window based on the name of the company.
-	[] Open round details window indexing on the round number of the current round.
+	[x] Open round details window indexing on Round Date of the current round.
+	[] Handle error of finding Round Date when a Debt Round Date = a VC Round Date
 
 Find Funding Usage function:
 	1. Find the funding usage sentence and cut it.

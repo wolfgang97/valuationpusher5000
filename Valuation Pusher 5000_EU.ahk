@@ -77,109 +77,154 @@ return
 ;
 shares_issued:
 ::sh::
-	SendInput, shares issued @ EUR  
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, shares issued @ EUR	
+	}
 return
 
 ; BSA warrants issued: Shift + Control + w
 ;
 warrants_issued:
 ^+w::
-	SendInput, with BSA warrants attached
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, with BSA warrants attached
+	}
 return
 
 ; BSA warrants exercised: du + Space
 ;
 warrants_exercised:
 ::du::
-	SendInput, due to exercise of BSA warrants
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, due to exercise of BSA warrants	
+	}
 return
 
 ; Round Realization: capreal + Space
 ;
 cap_realization:
 ::capreal::
-	SendInput, Capital increase definitively realized on
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, Capital increase definitively realized on	
+	}
 return
 
 ; Create Ordinary Share Class: Shift + Control + o
 ;
 ord_shares:
 ^+o::
-	SendInput, ^f
-	Sleep 200
-	SendInput, New Type
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, {Tab}
-	SendInput, Ordinary
-	SendInput, {Tab}
-	SendInput, {Enter}
-	SendInput {F5}
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, ^f
+		Sleep 200
+		SendInput, New Type
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, {Tab}
+		SendInput, Ordinary
+		SendInput, {Tab}
+		SendInput, {Enter}
+		SendInput {F5}	
+	}
 return
 	
 ; Shares issued at incorporation note: Shift + Control + i
 ;
 inc_note:
 ^+i::
-	SendInput, ^f
-	Sleep 200
-	SendInput, Add Type
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, +{Tab 6}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	ParValue := clipboard
-	SendInput, +{Tab}
-	clipboard := ""
-	SendInput, ^c
-	ClipWait
-	NumShares := clipboard
-	SendInput, +{Tab 21}
-	Gosub, auto_timestamp
-	SendInput, %NumShares% ordinary{Space}
-	Gosub, shares_issued
-	SendInput, {Space}%ParValue% (par) at incorporation.
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, ^f
+		Sleep 200
+		SendInput, Add Type
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, +{Tab 6}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		ParValue := clipboard
+		SendInput, +{Tab}
+		clipboard := ""
+		SendInput, ^c
+		ClipWait
+		NumShares := clipboard
+		SendInput, +{Tab 21}
+		Gosub, auto_timestamp
+		SendInput, %NumShares% ordinary{Space}
+		Gosub, shares_issued
+		SendInput, {Space}%ParValue% (par) at incorporation.	
+	}
 return
 
 ; Shares issued note: Shift + Control + n
 ;
 share_note:
 ^+n::
- 	SendInput, ^f
-	Sleep 200
-	SendInput, Add Type
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, +{Tab 3}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	OIP := Clipboard 
-	SendInput, +{Tab 4}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	NumShares := Clipboard
-	SendInput, ^f
-	Sleep 200
-	SendInput, Round {#}
-	Sleep 200
-	SendInput, {Tab}
-	SendInput, {Enter}
-	SendInput, {Escape}
-	FC_round_info := get_FC_round_info()
-	stock_series := FC_round_info["Stock`r`nSeries Type"]
-	SendInput, ^f
-	Sleep 200
-	SendInput, Pages
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, {Tab 2}
-	SendInput, %NumShares%{Space}%stock_series%{Space}
-	Gosub, shares_issued
-	SendInput, {Space}%OIP% on{Space}
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, ^f
+		Sleep 200
+		SendInput, Add Type
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, +{Tab 3}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		OIP := Clipboard 
+		SendInput, +{Tab 4}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		NumShares := Clipboard
+		SendInput, ^f
+		Sleep 200
+		SendInput, Pages
+		Sleep 200
+		SendInput, {Tab}
+		SendInput, {Enter}
+		Sleep, 200
+		SendInput, {Escape}
+		SendInput, {Tab 2}
+		SendInput, ^{Home}
+		MsgBox, %A_CaretY%
+		Py := A_CaretY
+		MsgBox, %Py%
+		MouseMove, 0, %Py%
+		Click, 3
+		SendInput, ^+{Left 2}
+		; FC_round_info := get_FC_round_info()
+		; stock_series := FC_round_info["Stock`r`nSeries Type"]
+		; SendInput, %NumShares%{Space}%stock_series%{Space}
+		; Gosub, shares_issued
+		; SendInput, {Space}%OIP% on{Space}	
+	}
+return
+
+vanilla_round:
+~LButton & v::
+	IfWinActive, Fight Club - Google Chrome
+	{
+		Sleep, 200
+		MouseGetPos, Px, Py
+		MouseMove, 0, %Py%
+		Click, 3
+		SendInput, ^+{Left 2}
+		FC_round_info := get_FC_round_info()
+		switch_to_RTS_window()
+		open_round_details(FC_round_info)	
+	}
+return
+
+test_command:
+^!x::
+	MouseGetPos, Px, Py
+	MsgBox, %Px%, %Py%	
 return
 
 ;                                                        -----RTS ROUND FUNCTIONS-----
