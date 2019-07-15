@@ -38,13 +38,10 @@ Please contact Brian.Hart@pitchbook.com to report any issues or update requests 
 
 ;Gets Round Information from the Fight Club Tool
 ;
-get_FC_round_info()
+get_FC_round_info(table)
 {
 	FC_round_info_raw := []
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	FC_round_info_raw := StrSplit(Clipboard, A_Tab)
+	FC_round_info_raw := StrSplit(table, A_Tab)
 	
 	temp_str := FC_round_info_raw[27]
 	temp_array := []

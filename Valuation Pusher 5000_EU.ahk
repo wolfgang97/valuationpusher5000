@@ -176,12 +176,40 @@ share_note:
 		Clipboard := ""
 		SendInput, ^c
 		ClipWait
-		OIP := Clipboard 
+		OIP := Clipboard
+
 		SendInput, +{Tab 4}
 		Clipboard := ""
 		SendInput, ^c
 		ClipWait
 		NumShares := Clipboard
+
+		SendInput, ^f
+		Sleep 200
+		SendInput, Round {#}
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, ^+{Right 44}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		element_str := Clipboard
+		While element_str != "Update RTS"
+		{
+			SendInput, ^+{Right}
+			Clipboard := ""
+			SendInput, ^c
+			ClipWait
+			element_str := Clipboard
+			element_str := SubStr(element_str, -9)
+		}
+		SendInput, ^+{Left 2}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		table := Clipboard
+		
+		FC_round_info := get_FC_round_info(table)
 		SendInput, ^f
 		Sleep 200
 		SendInput, Pages
@@ -191,18 +219,10 @@ share_note:
 		Sleep, 200
 		SendInput, {Escape}
 		SendInput, {Tab 2}
-		SendInput, ^{Home}
-		MsgBox, %A_CaretY%
-		Py := A_CaretY
-		MsgBox, %Py%
-		MouseMove, 0, %Py%
-		Click, 3
-		SendInput, ^+{Left 2}
-		; FC_round_info := get_FC_round_info()
-		; stock_series := FC_round_info["Stock`r`nSeries Type"]
-		; SendInput, %NumShares%{Space}%stock_series%{Space}
-		; Gosub, shares_issued
-		; SendInput, {Space}%OIP% on{Space}	
+		stock_series := FC_round_info["Stock`r`nSeries Type"]
+		SendInput, %NumShares%{Space}%stock_series%{Space}
+		Gosub, shares_issued
+		SendInput, {Space}%OIP% on{Space}	
 	}
 return
 
@@ -215,7 +235,11 @@ vanilla_round:
 		MouseMove, 0, %Py%
 		Click, 3
 		SendInput, ^+{Left 2}
-		FC_round_info := get_FC_round_info()
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		table := Clipboard
+		FC_round_info := get_FC_round_info(table)
 		switch_to_RTS_window()
 		open_round_details(FC_round_info)	
 	}
