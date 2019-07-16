@@ -1,39 +1,40 @@
-; $$\    $$\          $$\                      $$\     $$\                           $$$$$$$\                      $$\                                 
-; $$ |   $$ |         $$ |                     $$ |    \__|                          $$  __$$\                     $$ |                                
-; $$ |   $$ |$$$$$$\  $$ |$$\   $$\  $$$$$$\ $$$$$$\   $$\  $$$$$$\  $$$$$$$\        $$ |  $$ |$$\   $$\  $$$$$$$\ $$$$$$$\   $$$$$$\   $$$$$$\        
-; \$$\  $$  |\____$$\ $$ |$$ |  $$ | \____$$\\_$$  _|  $$ |$$  __$$\ $$  __$$\       $$$$$$$  |$$ |  $$ |$$  _____|$$  __$$\ $$  __$$\ $$  __$$\       
-;  \$$\$$  / $$$$$$$ |$$ |$$ |  $$ | $$$$$$$ | $$ |    $$ |$$ /  $$ |$$ |  $$ |      $$  ____/ $$ |  $$ |\$$$$$$\  $$ |  $$ |$$$$$$$$ |$$ |  \__|      
-;   \$$$  / $$  __$$ |$$ |$$ |  $$ |$$  __$$ | $$ |$$\ $$ |$$ |  $$ |$$ |  $$ |      $$ |      $$ |  $$ | \____$$\ $$ |  $$ |$$   ____|$$ |            
-;    \$  /  \$$$$$$$ |$$ |\$$$$$$  |\$$$$$$$ | \$$$$  |$$ |\$$$$$$  |$$ |  $$ |      $$ |      \$$$$$$  |$$$$$$$  |$$ |  $$ |\$$$$$$$\ $$ |            
-;     \_/    \_______|\__| \______/  \_______|  \____/ \__| \______/ \__|  \__|      \__|       \______/ \_______/ \__|  \__| \_______|\__|            
-;                                                                                                                                                     
-;                                                                                                                                                     
-;                                                                                                                                                     
-;                                                 $$$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\                                                               
-;                                                 $$  ____| $$$ __$$\ $$$ __$$\ $$$ __$$\                                                              
-;                                                 $$ |      $$$$\ $$ |$$$$\ $$ |$$$$\ $$ |                                                             
-;                                                 $$$$$$$\  $$\$$\$$ |$$\$$\$$ |$$\$$\$$ |                                                             
-;                                                 \_____$$\ $$ \$$$$ |$$ \$$$$ |$$ \$$$$ |                                                             
-;                                                 $$\   $$ |$$ |\$$$ |$$ |\$$$ |$$ |\$$$ |                                                             
-;                                                 \$$$$$$  |\$$$$$$  /\$$$$$$  /\$$$$$$  /                                                             
-;                                                  \______/  \______/  \______/  \______/                                                              
-;                                                                                                                                                 
-; 
-; 
-;				      :::::::::: :::    :::          :::::::::: ::::::::: ::::::::::: ::::::::::: ::::::::::: ::::::::  ::::    ::: 
-;				     :+:        :+:    :+:          :+:        :+:    :+:    :+:         :+:         :+:    :+:    :+: :+:+:   :+:  
-;				    +:+        +:+    +:+          +:+        +:+    +:+    +:+         +:+         +:+    +:+    +:+ :+:+:+  +:+   
-;				   +#++:++#   +#+    +:+          +#++:++#   +#+    +:+    +#+         +#+         +#+    +#+    +:+ +#+ +:+ +#+    
-;				  +#+        +#+    +#+          +#+        +#+    +#+    +#+         +#+         +#+    +#+    +#+ +#+  +#+#+#     
-;				 #+#        #+#    #+#          #+#        #+#    #+#    #+#         #+#         #+#    #+#    #+# #+#   #+#+#      
-;				##########  ########           ########## ######### ###########     ###     ########### ########  ###    ####       
-;
-;                                                                                                                                                 
-; Created by Brian Hart @ all rights reserved
-; PitchBook Data Inc.
-; Fight Club Research Team
-; Please contact Brian.Hart@pitchbook.com to report any issues or update requests regarding this script or if you'd just like to talk. 
+/*
+$$\    $$\          $$\                      $$\     $$\                           $$$$$$$\                      $$\                                 
+$$ |   $$ |         $$ |                     $$ |    \__|                          $$  __$$\                     $$ |                                
+$$ |   $$ |$$$$$$\  $$ |$$\   $$\  $$$$$$\ $$$$$$\   $$\  $$$$$$\  $$$$$$$\        $$ |  $$ |$$\   $$\  $$$$$$$\ $$$$$$$\   $$$$$$\   $$$$$$\        
+\$$\  $$  |\____$$\ $$ |$$ |  $$ | \____$$\\_$$  _|  $$ |$$  __$$\ $$  __$$\       $$$$$$$  |$$ |  $$ |$$  _____|$$  __$$\ $$  __$$\ $$  __$$\       
+ \$$\$$  / $$$$$$$ |$$ |$$ |  $$ | $$$$$$$ | $$ |    $$ |$$ /  $$ |$$ |  $$ |      $$  ____/ $$ |  $$ |\$$$$$$\  $$ |  $$ |$$$$$$$$ |$$ |  \__|      
+  \$$$  / $$  __$$ |$$ |$$ |  $$ |$$  __$$ | $$ |$$\ $$ |$$ |  $$ |$$ |  $$ |      $$ |      $$ |  $$ | \____$$\ $$ |  $$ |$$   ____|$$ |            
+   \$  /  \$$$$$$$ |$$ |\$$$$$$  |\$$$$$$$ | \$$$$  |$$ |\$$$$$$  |$$ |  $$ |      $$ |      \$$$$$$  |$$$$$$$  |$$ |  $$ |\$$$$$$$\ $$ |            
+    \_/    \_______|\__| \______/  \_______|  \____/ \__| \______/ \__|  \__|      \__|       \______/ \_______/ \__|  \__| \_______|\__|            
+                                                                                                                                                    
+                                                                                                                                                    
+                                                                                                                                                    
+                                                $$$$$$$\   $$$$$$\   $$$$$$\   $$$$$$\                                                               
+                                                $$  ____| $$$ __$$\ $$$ __$$\ $$$ __$$\                                                              
+                                                $$ |      $$$$\ $$ |$$$$\ $$ |$$$$\ $$ |                                                             
+                                                $$$$$$$\  $$\$$\$$ |$$\$$\$$ |$$\$$\$$ |                                                             
+                                                \_____$$\ $$ \$$$$ |$$ \$$$$ |$$ \$$$$ |                                                             
+                                                $$\   $$ |$$ |\$$$ |$$ |\$$$ |$$ |\$$$ |                                                             
+                                                \$$$$$$  |\$$$$$$  /\$$$$$$  /\$$$$$$  /                                                             
+                                                 \______/  \______/  \______/  \______/                                                              
+                                                                                                                                                
 
+
+				      :::::::::: :::    :::          :::::::::: ::::::::: ::::::::::: ::::::::::: ::::::::::: ::::::::  ::::    ::: 
+				     :+:        :+:    :+:          :+:        :+:    :+:    :+:         :+:         :+:    :+:    :+: :+:+:   :+:  
+				    +:+        +:+    +:+          +:+        +:+    +:+    +:+         +:+         +:+    +:+    +:+ :+:+:+  +:+   
+				   +#++:++#   +#+    +:+          +#++:++#   +#+    +:+    +#+         +#+         +#+    +#+    +:+ +#+ +:+ +#+    
+				  +#+        +#+    +#+          +#+        +#+    +#+    +#+         +#+         +#+    +#+    +#+ +#+  +#+#+#     
+				 #+#        #+#    #+#          #+#        #+#    #+#    #+#         #+#         #+#    #+#    #+# #+#   #+#+#      
+				##########  ########           ########## ######### ###########     ###     ########### ########  ###    ####       
+
+                                                                                                                                                
+Created by Brian Hart @ all rights reserved
+PitchBook Data Inc.
+Fight Club Research Team
+Please contact Brian.Hart@pitchbook.com to report any issues or update requests regarding this script or if you'd just like to talk. 
+*/
 ;  					                                      -----TABLE OF CONTENTS-----
 ; ###############################################################################################################################################
 
@@ -43,6 +44,10 @@
 ;	4. FC Research Request Functions
 
 ; ###############################################################################################################################################
+
+;Import Statments:
+;
+#Include, Valuation Pusher 5000_Helper Functions.ahk
 
 ; User's Initials (update before use)
 ;
@@ -72,182 +77,180 @@ return
 ;
 shares_issued:
 ::sh::
-	SendInput, shares issued @ EUR  
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, shares issued @ EUR	
+	}
 return
 
 ; BSA warrants issued: Shift + Control + w
 ;
 warrants_issued:
 ^+w::
-	SendInput, with BSA warrants attached
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, with BSA warrants attached
+	}
 return
 
 ; BSA warrants exercised: du + Space
 ;
 warrants_exercised:
 ::du::
-	SendInput, due to exercise of BSA warrants
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, due to exercise of BSA warrants	
+	}
 return
 
 ; Round Realization: capreal + Space
 ;
 cap_realization:
 ::capreal::
-	SendInput, Capital increase definitively realized on
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, Capital increase definitively realized on	
+	}
 return
 
 ; Create Ordinary Share Class: Shift + Control + o
 ;
 ord_shares:
 ^+o::
-	SendInput, ^f
-	Sleep 200
-	SendInput, New Type
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, {Tab}
-	SendInput, Ordinary
-	SendInput, {Tab}
-	SendInput, {Enter}
-	SendInput {F5}
-return
-
-;Gets Round Information from the Fight Club Tool
-;
-get_FC_round_info()
-{
-	SendInput, ^+{Right 57}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	FC_round_info_raw := []
-	FC_round_info_raw := StrSplit(Clipboard, A_Tab)
-	temp_str := FC_round_info_raw[27]
-	temp_array := []
-	temp_array := StrSplit(temp_str, "`r`n")
-
-	FC_round_info := {}
-
-	Loop, 17
+	IfWinActive, Fight Club - Google Chrome
 	{
-		FC_round_info[FC_round_info_raw[A_Index]] := FC_round_info_raw[A_Index + 17]
+		SendInput, ^f
+		Sleep 200
+		SendInput, New Type
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, {Tab}
+		SendInput, Ordinary
+		SendInput, {Tab}
+		SendInput, {Enter}
+		SendInput {F5}	
 	}
-
-	FC_round_info["Price per Share"] := FC_round_info["Post-Money Val"]
-	FC_round_info["Pre-Money Val"] := temp_array[2]
-	FC_round_info["Round Amount"] := temp_array[3]
-	FC_round_info["Post-Money Val"] := temp_array[4]
-	FC_round_info["% Acquired"] := temp_array[5]
-
-	; Stock`r`nSeries Type
+return
 	
-	return FC_round_info
-}
-	
-
 ; Shares issued at incorporation note: Shift + Control + i
 ;
 inc_note:
 ^+i::
-	SendInput, ^f
-	Sleep 200
-	SendInput, Add Type
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, +{Tab 6}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	ParValue := clipboard
-	SendInput, +{Tab}
-	clipboard := ""
-	SendInput, ^c
-	ClipWait
-	NumShares := clipboard
-	SendInput, +{Tab 21}
-	Gosub, auto_timestamp
-	SendInput, %NumShares% ordinary{Space}
-	Gosub, shares_issued
-	SendInput, {Space}%ParValue% (par) at incorporation.
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, ^f
+		Sleep 200
+		SendInput, Add Type
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, +{Tab 6}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		ParValue := clipboard
+		SendInput, +{Tab}
+		clipboard := ""
+		SendInput, ^c
+		ClipWait
+		NumShares := clipboard
+		SendInput, +{Tab 21}
+		Gosub, auto_timestamp
+		SendInput, %NumShares% ordinary{Space}
+		Gosub, shares_issued
+		SendInput, {Space}%ParValue% (par) at incorporation.	
+	}
 return
 
 ; Shares issued note: Shift + Control + n
 ;
 share_note:
 ^+n::
- 	SendInput, ^f
-	Sleep 200
-	SendInput, Add Type
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, +{Tab 3}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	OIP := Clipboard 
-	SendInput, +{Tab 4}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	NumShares := Clipboard
-	SendInput, ^f
-	Sleep 200
-	SendInput, Round {#}
-	Sleep 200
-	SendInput, {Tab}
-	SendInput, {Enter}
-	SendInput, {Escape}
-	FC_round_info := get_FC_round_info()
-	stock_series := FC_round_info["Stock`r`nSeries Type"]
-	SendInput, ^f
-	Sleep 200
-	SendInput, Pages
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, {Tab 2}
-	SendInput, %NumShares%
-	SendInput, {Space}%stock_series%{Space}
-	Gosub, shares_issued
-	SendInput, {Space}%OIP% on{Space}
+	IfWinActive, Fight Club - Google Chrome
+	{
+		SendInput, ^f
+		Sleep 200
+		SendInput, Add Type
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, +{Tab 3}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		OIP := Clipboard
+
+		SendInput, +{Tab 4}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		NumShares := Clipboard
+
+		SendInput, ^f
+		Sleep 200
+		SendInput, Round {#}
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, ^+{Right 44}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		element_str := Clipboard
+		While element_str != "Update RTS"
+		{
+			SendInput, ^+{Right}
+			Clipboard := ""
+			SendInput, ^c
+			ClipWait
+			element_str := Clipboard
+			element_str := SubStr(element_str, -9)
+		}
+		SendInput, ^+{Left 2}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		table := Clipboard
+		
+		FC_round_info := get_FC_round_info(table)
+		SendInput, ^f
+		Sleep 200
+		SendInput, Pages
+		Sleep 200
+		SendInput, {Tab}
+		SendInput, {Enter}
+		Sleep, 200
+		SendInput, {Escape}
+		SendInput, {Tab 2}
+		stock_series := FC_round_info["Stock`r`nSeries Type"]
+		SendInput, %NumShares%{Space}%stock_series%{Space}
+		Gosub, shares_issued
+		SendInput, {Space}%OIP% on{Space}	
+	}
 return
 
-; Switch Window
-;
-switch_window:
-	SendInput, ^f
-	Sleep 200
-	SendInput, |
-	Sleep 200
-	SendInput, {Tab}
-	SendInput, {Enter}
-	SendInput, {Escape}
-	SendInput, ^+{Left}
-	Clipboard := ""
-	SendInput, ^c
-	ClipWait
-	comp_name := Clipboard
-	window_name := "PitchBook RTS " . comp_name . "- Google Chrome"
-	WinActivate, %window_name%
-	MouseClick, Left, 295, 218
+vanilla_round:
+~LButton & v::
+	IfWinActive, Fight Club - Google Chrome
+	{
+		KeyWait, v
+		Sleep, 200
+		MouseGetPos, Px, Py
+		MouseMove, 0, %Py%
+		Click, 3
+		SendInput, ^+{Left 2}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		table := Clipboard
+		FC_round_info := get_FC_round_info(table)
+		switch_to_RTS_window()
+		open_round_details(FC_round_info)	
+	}
 return
 
-;Open Round Details
-;
-open_round_details:
-	Gosub, switch_window
-	SendInput, ^f
-	Sleep 200
-	SendInput, #
-	Sleep 200
-	SendInput, {Escape}
-	FC_round_info := Gosub, get_FC_round_info
-	round_number := FC_round_info[Round #]
-	SendInput, ^f
-	Sleep 200
-	SendInput, %round_number%
-	Sleep 200
-	SendInput, {Tab 12}
-	SendInput, {Enter}
+test_command:
+^!x::
+	MouseGetPos, Px, Py
+	MsgBox, %Px%, %Py%	
+return
 
 ;                                                        -----RTS ROUND FUNCTIONS-----
 ; ###############################################################################################################################################                                             
@@ -256,9 +259,6 @@ open_round_details:
 ;
 dummy_round:
 ^+u::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput, {Tab}
 	SendInput, c
 	SendInput, {Tab}
@@ -277,9 +277,6 @@ return
 ;
 estimated_round:
 ^+`::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput ^f
 	Sleep 200
 	SendInput PV Confirm
@@ -303,9 +300,6 @@ return
 ;
 debt_round:
 ^+.::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput ^f
 	Sleep 200
 	SendInput, funding
@@ -329,9 +323,6 @@ return
 ;
 act_log_settings:
 ^+a::
-	KeyWait Control
-	KeyWait Alt
-	KeyWait Shift
 	SendInput {Tab}
 	SendInput, Co VC - N
 	SendInput {Tab}
