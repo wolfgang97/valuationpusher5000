@@ -1,5 +1,4 @@
 /*
-
 $$\    $$\          $$\                      $$\     $$\                           $$$$$$$\                      $$\                                 
 $$ |   $$ |         $$ |                     $$ |    \__|                          $$  __$$\                     $$ |                                
 $$ |   $$ |$$$$$$\  $$ |$$\   $$\  $$$$$$\ $$$$$$\   $$\  $$$$$$\  $$$$$$$\        $$ |  $$ |$$\   $$\  $$$$$$$\ $$$$$$$\   $$$$$$\   $$$$$$\        
@@ -21,6 +20,7 @@ $$ |   $$ |$$$$$$\  $$ |$$\   $$\  $$$$$$\ $$$$$$\   $$\  $$$$$$\  $$$$$$$\     
                                                  \______/  \______/  \______/  \______/                                                              
                                                                                                                                                 
 
+
       :::    ::: :::::::::: :::        :::::::::  :::::::::: :::::::::          :::::::::: :::    ::: ::::    :::  :::::::: ::::::::::: ::::::::::: ::::::::  ::::    :::  :::::::: 
      :+:    :+: :+:        :+:        :+:    :+: :+:        :+:    :+:         :+:        :+:    :+: :+:+:   :+: :+:    :+:    :+:         :+:    :+:    :+: :+:+:   :+: :+:    :+: 
     +:+    +:+ +:+        +:+        +:+    +:+ +:+        +:+    +:+         +:+        +:+    +:+ :+:+:+  +:+ +:+           +:+         +:+    +:+    +:+ :+:+:+  +:+ +:+         
@@ -36,7 +36,9 @@ Fight Club Research Team
 Please contact Brian.Hart@pitchbook.com to report any issues or update requests regarding this script or if you'd just like to talk. 
 */
 
-;Gets Round Information from the Fight Club Tool
+; Accepts the two rows from the round information section of the
+; Fight Club tool (string), maps the top row keys to the bottom
+; row values and returns an associated array.
 ;
 get_FC_round_info(table)
 {
@@ -62,7 +64,8 @@ get_FC_round_info(table)
 	return FC_round_info
 }
 
-; Switch to RTS Window
+; Switchs from to Fight Club tool to the RTS Window
+; of the same company that's being researched.
 ;
 switch_to_RTS_window()
 {
@@ -87,7 +90,9 @@ switch_to_RTS_window()
 	return	
 }
 
-;Open Round Details
+; Accepts an associated array containing round information from
+; the Fight Club tool and opens the round details window in RTS
+; indexing on the round date.
 ;
 open_round_details(FC_round_info)
 {
@@ -102,4 +107,34 @@ open_round_details(FC_round_info)
 	Sleep, 1000
 	SendInput, #{Up}
 	return
+}
+
+; Accepts the funding note from the round details window (string)
+; and returns the funding use portion of the note (string).
+;
+get_funding_use(round_note)
+{
+	round_note_array := []
+	round_note_array := StrSplit(round_note, ". ")
+	
+	usage_str := round_note_array.Pop()
+	usage_str_array := []
+	usage_str_array := StrSplit(usage_str, " ")
+
+	Loop % usage_str_array.Length()
+	{
+		test_str := usage_str_array[A_Index]
+		test_str := Trim(test_str)
+		match1 := "use"
+		match2 := "utilize"
+		if test_str = %match1%
+		{
+			return usage_str
+		}
+		if test_str = %match2%
+		{
+			return usage_str
+		}
+	}
+    return	
 }

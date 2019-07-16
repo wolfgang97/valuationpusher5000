@@ -188,6 +188,10 @@ share_note:
 		Sleep 200
 		SendInput, Round {#}
 		Sleep 200
+		SendInput, {Tab}
+		Sleep, 200
+		SendInput, {Enter}
+		Sleep, 200
 		SendInput, {Escape}
 		SendInput, ^+{Right 44}
 		Clipboard := ""
@@ -214,9 +218,6 @@ share_note:
 		Sleep 200
 		SendInput, Pages
 		Sleep 200
-		SendInput, {Tab}
-		SendInput, {Enter}
-		Sleep, 200
 		SendInput, {Escape}
 		SendInput, {Tab 2}
 		stock_series := FC_round_info["Stock`r`nSeries Type"]
@@ -242,14 +243,21 @@ vanilla_round:
 		table := Clipboard
 		FC_round_info := get_FC_round_info(table)
 		switch_to_RTS_window()
-		open_round_details(FC_round_info)	
+		open_round_details(FC_round_info)
+		SendInput, ^f
+		Sleep 200
+		SendInput, external note:{space}
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, {Tab}
+		Clipboard := ""
+		SendInput, ^a
+		SendInput, ^c
+		ClipWait
+		round_note := Clipboard
+		funding_use := get_funding_use(round_note)
+		Gosub, round_note
 	}
-return
-
-test_command:
-^!x::
-	MouseGetPos, Px, Py
-	MsgBox, %Px%, %Py%	
 return
 
 ;                                                        -----RTS ROUND FUNCTIONS-----
@@ -271,6 +279,30 @@ dummy_round:
 	SendInput, {Tab}
 	Gosub, auto_timestamp
 	SendInput, FC Dummy Round. ///
+return
+
+round_note:
+	SendInput, ^f
+	Sleep 200
+	SendInput, external note:{space}
+	Sleep 200
+	SendInput, {Escape}
+	SendInput, {Tab}
+	Clipboard := ""
+	SendInput, ^a
+	SendInput, ^c
+	ClipWait
+	round_note := Clipboard
+	funding_use := get_funding_use(round_note)
+	SendInput, ^a
+	SendInput, {BackSpace}
+	SendInput, {Tab 2}
+	SendInput, {Space}
+	Sleep, 2000
+	SendInput, +{Tab 2}
+	SendInput, ^{End}
+	SendInput, %funding_use%
+	SendInput, ^s
 return
 
 ; Estimated Round Details: Shift + Control + `
