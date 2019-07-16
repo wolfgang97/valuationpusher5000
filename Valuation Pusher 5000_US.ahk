@@ -488,12 +488,4 @@ first_round:
 	SendInput, {Space}%fr%
 Return
 
-type_message:
-::rbr::
-    SendInput, Please see the request below, it came in through the Research Inbox.
-    SendInput, {Return}
-    SendInput, Data Source: Research Inbox
-    SendInput {Return}
-return
-
 
