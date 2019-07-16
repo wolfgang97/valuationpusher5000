@@ -85,8 +85,7 @@ switch_to_RTS_window()
 	comp_name := Clipboard
 	window_name := "PitchBook RTS " . comp_name . "- Google Chrome"
 	WinActivate, %window_name%
-	MouseClick, Left, 295, 218
-	Sleep, 3000
+	refresh_RTS()
 	return	
 }
 
@@ -104,7 +103,7 @@ open_round_details(FC_round_info)
 	SendInput, {Escape}
 	SendInput, {Tab 7}
 	SendInput, {Enter}
-	Sleep, 1000
+	Sleep, 5000
 	SendInput, #{Up}
 	return
 }
@@ -137,4 +136,116 @@ get_funding_use(round_note)
 		}
 	}
     return	
+}
+
+get_round_note()
+{
+	IfWinActive, Round Details - Google Chrome
+	{
+		SendInput, ^f
+		Sleep 200
+		SendInput, external note:{space}
+		Sleep 200
+		SendInput, {Escape}
+		SendInput, {Tab}
+		Clipboard := ""
+		SendInput, ^a
+		SendInput, ^c
+		ClipWait
+		round_note := Clipboard
+		funding_use := get_funding_use(round_note)
+		SendInput, ^a
+		SendInput, {BackSpace}
+		SendInput, {Tab 2}
+		SendInput, {Space}
+		Sleep, 2000
+		SendInput, +{Tab 2}
+		SendInput, ^{End}
+		SendInput, %funding_use%
+		Clipboard := ""
+		SendInput, ^a
+		SendInput, ^c
+		ClipWait
+		round_note := Clipboard
+		SendInput, ^s
+		SendInput, ^w
+		return round_note
+	}
+}
+
+last_round(FC_round_info)
+{
+	SendInput, {PgUp 3}
+	SendInput, ^f
+	Sleep 200
+	SendInput, Rounds
+	Sleep 200
+	SendInput, {Enter}
+	SendInput, {Escape}
+	SendInput, {Tab 2}
+	rounds := []
+	Clipboard := ""
+	SendInput, ^c
+	ClipWait
+	rounds.Push(Clipboard)
+	test_val := rounds[rounds.MaxIndex()]
+	test_if_int := IsType(test_val, "integer")
+	while (test_if_int = 1)
+	{
+		SendInput, {Tab 15}
+		Clipboard := ""
+		SendInput, ^c
+		ClipWait
+		rounds.Push(Clipboard)
+		test_val := rounds[rounds.MaxIndex()]
+		test_if_int := IsType(test_val, "integer")	
+	} 			
+	rounds.Pop()
+	last_round := rounds.Pop()
+	current_round := FC_round_info["Round #"]
+	MsgBox, %current_round%
+	if current_round = last_round
+	{
+		return true
+	} 
+	else
+	{
+		return false
+	}
+}
+
+add_finstat_note()
+{
+	SendInput, {PgUp 3}
+	MouseClick, Left, 680, 1025
+	Sleep, 1000
+	SendInput, ^f
+	Sleep 200
+	SendInput, Financing Status Note:
+	Sleep 200
+	SendInput, {Escape}
+	SendInput, {Tab 2}
+	SendInput, ^a
+	SendInput, {BackSpace}
+	SendInput, %round_note%
+	SendInput, ^s
+}
+
+refresh_RTS() 
+{
+	MouseClick, Left, 295, 218
+	Sleep, 5000
+	return
+}
+
+IsType(p_Input, p_Type)
+{
+	If InStr("integer,float,number,digit,xdigit,alpha,upper,lower,alnum,space,time",p_Type,false)
+	{
+		If p_Input is %p_Type%
+		{
+			Return 1	
+		}		
+	}
+	Return 0
 }

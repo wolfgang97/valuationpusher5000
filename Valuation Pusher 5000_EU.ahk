@@ -244,20 +244,23 @@ vanilla_round:
 		FC_round_info := get_FC_round_info(table)
 		switch_to_RTS_window()
 		open_round_details(FC_round_info)
-		SendInput, ^f
-		Sleep 200
-		SendInput, external note:{space}
-		Sleep 200
-		SendInput, {Escape}
-		SendInput, {Tab}
-		Clipboard := ""
-		SendInput, ^a
-		SendInput, ^c
-		ClipWait
-		round_note := Clipboard
-		funding_use := get_funding_use(round_note)
-		Gosub, round_note
+		round_note := get_round_note()
+		Sleep, 1000
+		refresh_RTS() 
+		if last_round(FC_round_info)
+		{
+			add_finstat_note()
+		}
 	}
+return
+
+test:
+^!x::
+	table := Clipboard		
+	FC_round_info := get_FC_round_info(table)
+	switch_to_RTS_window()
+	round_status := last_round(FC_round_info)
+	MsgBox, %round_status%
 return
 
 ;                                                        -----RTS ROUND FUNCTIONS-----
@@ -279,30 +282,6 @@ dummy_round:
 	SendInput, {Tab}
 	Gosub, auto_timestamp
 	SendInput, FC Dummy Round. ///
-return
-
-round_note:
-	SendInput, ^f
-	Sleep 200
-	SendInput, external note:{space}
-	Sleep 200
-	SendInput, {Escape}
-	SendInput, {Tab}
-	Clipboard := ""
-	SendInput, ^a
-	SendInput, ^c
-	ClipWait
-	round_note := Clipboard
-	funding_use := get_funding_use(round_note)
-	SendInput, ^a
-	SendInput, {BackSpace}
-	SendInput, {Tab 2}
-	SendInput, {Space}
-	Sleep, 2000
-	SendInput, +{Tab 2}
-	SendInput, ^{End}
-	SendInput, %funding_use%
-	SendInput, ^s
 return
 
 ; Estimated Round Details: Shift + Control + `

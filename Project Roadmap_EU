@@ -34,14 +34,14 @@ Switch Window function:
 	[x] Open round details window indexing on Round Date of the current round.
 	[] Handle error of finding Round Date when a Debt Round Date = a VC Round Date
 
-Find Funding Usage function:
-	1. Find the funding usage sentence and cut it.
-	2. Click the create round note button.
-	3. Paste back in the funding usage sentence at the end of the funding note and save.
+[x] Find Funding Usage function:
+	[x] Find the funding usage sentence and cut it.
+	[x] Click the create round note button.
+	[x] Paste back in the funding usage sentence at the end of the funding note and save.
 
 Check If Last round function:
-	1. Get Round numbers
-	2. Check if the current round is the highest round number.
+	[x] Get Round numbers
+	[x] Check if the current round is the highest round number.
 
 Debt Assumption function:
 	1. Define a variable with the RTS round amount
