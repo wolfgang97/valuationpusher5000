@@ -267,6 +267,10 @@ act_log_settings:
 	SendInput, n
 	SendInput {Tab 6}
 	Gosub, timestamp_initials
+	Gosub, client_request
+	SendInput, {space}
+	SendInput, {Tab 4}
+	SendInput, {Enter}
 return
 
 amendment_tranching:
@@ -358,7 +362,7 @@ Return
 
 client_request:
 ::crc::
-  crc = Client Request 
+  crc = Client Request ///
   Send, %crc%
 Return
 
