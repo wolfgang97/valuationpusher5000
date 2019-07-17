@@ -183,7 +183,6 @@ share_note:
 		SendInput, ^c
 		ClipWait
 		NumShares := Clipboard
-
 		SendInput, ^f
 		Sleep 200
 		SendInput, Round {#}
@@ -228,31 +227,33 @@ share_note:
 return
 
 vanilla_round:
-~LButton & v::
-	IfWinActive, Fight Club - Google Chrome
-	{
-		KeyWait, v
-		Sleep, 200
-		MouseGetPos, Px, Py
-		MouseMove, 0, %Py%
-		Click, 3
-		SendInput, ^+{Left 2}
-		Clipboard := ""
-		SendInput, ^c
-		ClipWait
-		table := Clipboard
-		FC_round_info := get_FC_round_info(table)
-		switch_to_RTS_window()
-		open_round_details(FC_round_info)
-		round_note := get_round_note()
-		Sleep, 1000
-		refresh_RTS() 
-		if last_round(FC_round_info)
+if GetKeyState("Alt") && GetKeyState("LCtrl"){
+	~LButton & v::
+		IfWinActive, Fight Club - Google Chrome
 		{
-			add_finstat_note()
+			KeyWait, v
+			Sleep, 200
+			MouseGetPos, Px, Py
+			MouseMove, 0, %Py%
+			Click, 3
+			SendInput, ^+{Left 2}
+			Clipboard := ""
+			SendInput, ^c
+			ClipWait
+			table := Clipboard
+			FC_round_info := get_FC_round_info(table)
+			switch_to_RTS_window()
+			open_round_details(FC_round_info)
+			round_note := get_round_note()
+			Sleep, 1000
+			refresh_RTS() 
+			if (last_round(FC_round_info) = 1)
+			{
+				add_finstat_note()
+			}
 		}
-	}
-return
+	return
+}
 
 test:
 ^!x::

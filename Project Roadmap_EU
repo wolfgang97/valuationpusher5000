@@ -22,10 +22,10 @@ warrant_round:
 
 Functions to copy content to round details:
 	[] Define several ways to click the Update RTS button based on different cases:
-		[x] Vanilla Round
-		[] Debt Assumption
-		[] Round Assumption
-		[] Warrant Assumption
+		[] Vanilla Round (Control + Shift + V + Click)
+		[] Debt Assumption (Control + Shift + D + Click)
+		[] Round Assumption (Control + Shift + R + Click)
+		[] Warrant Assumption (Control + Shift + W + Click)
 
 Switch Window function:
 	[x] Define a variable with the name of the company as found in the Fight Club tool
