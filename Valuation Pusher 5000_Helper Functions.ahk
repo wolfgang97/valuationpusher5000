@@ -218,7 +218,7 @@ add_finstat_note()
 {
 	SendInput, {PgUp 3}
 	MouseClick, Left, 680, 1025
-	Sleep, 1000
+	Sleep, 2000
 	SendInput, ^f
 	Sleep 200
 	SendInput, Financing Status Note:
@@ -228,6 +228,7 @@ add_finstat_note()
 	SendInput, ^a
 	SendInput, {BackSpace}
 	SendInput, %round_note%
+	SendInput, ^v
 	SendInput, ^s
 }
 

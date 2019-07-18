@@ -177,7 +177,6 @@ share_note:
 		SendInput, ^c
 		ClipWait
 		OIP := Clipboard
-
 		SendInput, +{Tab 4}
 		Clipboard := ""
 		SendInput, ^c
@@ -227,12 +226,13 @@ share_note:
 return
 
 vanilla_round:
-if GetKeyState("Alt") && GetKeyState("LCtrl"){
-	~LButton & v::
+~LButton & v::
+	Altkey := GetKeyState("Alt")
+	Cntrlkey := GetKeyState("LCtrl") 
+	if (Altkey == 1 && Cntrlkey == 1) 
+	{
 		IfWinActive, Fight Club - Google Chrome
 		{
-			KeyWait, v
-			Sleep, 200
 			MouseGetPos, Px, Py
 			MouseMove, 0, %Py%
 			Click, 3
@@ -252,8 +252,10 @@ if GetKeyState("Alt") && GetKeyState("LCtrl"){
 				add_finstat_note()
 			}
 		}
+		return
+	}
 	return
-}
+
 
 test:
 ^!x::
@@ -263,6 +265,7 @@ test:
 	round_status := last_round(FC_round_info)
 	MsgBox, %round_status%
 return
+
 
 ;                                                        -----RTS ROUND FUNCTIONS-----
 ; ###############################################################################################################################################                                             
@@ -277,9 +280,11 @@ dummy_round:
 	SendInput, e
 	SendInput, {Tab 5}
 	Sleep 200
-	SendInput, estimated
-	Send, {Tab 3}
-	SendInput, e
+	SendInput, Estimated
+	Send, {Tab 2}
+	Send, Fight Club
+	SendInput, {Tab}
+	SendInput, Euros
 	SendInput, {Tab}
 	Gosub, auto_timestamp
 	SendInput, FC Dummy Round. ///
@@ -410,4 +415,6 @@ return
 publish_cap_table:
 ::capc::
 	SendInput, and publish cap table information{!} Updates will be posted to the platform shortly.
-return	
+return
+
+^Esc::ExitApp	

@@ -13,9 +13,12 @@ PROJECT ROADMAP
 [x] Change searches on "Stock split" to "Pages"
 [x] Use if WinExist to make sure that scripts are only running in "Fight Club - Google Chrome" and "PitchBook RTS - Google Chrome"
 
+[] Exceptions:
+	[] Handle unknown share price case (OIP is blank)
+	[] Handle blank round note for dummy rounds
+
 share_note function improvements:
 	[x] Get share class name
-	2. Handle unknown share price case 
 
 warrant_round:
 	1. Change the note to read: "The company raised EUR $$$ through a combination of warrants and venture funding"
