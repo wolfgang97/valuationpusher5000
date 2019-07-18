@@ -6,6 +6,8 @@
 type_message:
 ::rbr::
 	SendInput, Please see the request below, it came in through the Research Inbox.
+	SendInput, {Return}
+	SendInput, Data Source{:} Research Inbox
 	SendInput, {Down}
 	SendInput, {Down}
 	SendInput, Thanks{,}
@@ -17,6 +19,26 @@ return
 ;	      through adding the follow-up flag to the Quick Access Toolbar (4th position).
 ;	      Starting position is with the email selected. 
 early_stage:
+^+o::
+	SendInput, ^f
+	SendInput, +{Tab 3}
+	SendInput, {Return}
+	SendInput, {Down}
+	SendInput, {Return}
+	SendInput, {Tab 3}
+	SendInput, sf ear
+	SendInput, {Tab 2}
+	SendInput, margaret
+	SendInput, {Tab 3}
+	SendInput, {up 2}
+	Gosub, type_message
+	SendInput, +{Tab 7}
+	SendInput, {Return}
+	SendInput, ^{F6}
+	SendInput, !3m
+return
+
+private_co:
 ^+e::
 	SendInput, ^f
 	SendInput, +{Tab 3}
@@ -24,14 +46,15 @@ early_stage:
 	SendInput, {Down}
 	SendInput, {Return}
 	SendInput, {Tab 3}
-	SendInput, sf early
+	SendInput, sf private co
 	SendInput, {Tab 2}
 	SendInput, margaret
 	SendInput, {Tab 3}
+	SendInput, {up 2}
 	Gosub, type_message
 	SendInput, +{Tab 7}
 	SendInput, {Return}
-	SendInput, ^{F6}
+	SendInput, ^{F7}
 	SendInput, !3m
 return
 
@@ -49,10 +72,11 @@ new_entity:
 	SendInput, {Down}
 	SendInput, {Return}
 	SendInput, {Tab 3}
-	SendInput, sf early
+	SendInput, sf private co
 	SendInput, {Tab 2}
 	SendInput, margaret
 	SendInput, {Tab 3}
+	SendInput, {up 2}
 	Gosub, type_message
 	SendInput, {Return}
 	SendInput, New Entity
@@ -60,7 +84,6 @@ new_entity:
 	SendInput, ^v
 	SendInput, +{Tab 7}
 	SendInput, {Return}
-	SendInput, ^{F5}
-	SendInput, ^{F6}
+	SendInput, ^{F7}
 	SendInput, !3m
 return
