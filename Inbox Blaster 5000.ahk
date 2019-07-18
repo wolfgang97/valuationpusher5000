@@ -77,11 +77,10 @@ new_entity:
 	SendInput, margaret
 	SendInput, {Tab 3}
 	SendInput, {up 2}
-	Gosub, type_message
-	SendInput, {Return}
 	SendInput, New Entity
 	SendInput, {Return}
-	SendInput, ^v
+	Gosub, type_message
+	SendInput, {Return}
 	SendInput, +{Tab 7}
 	SendInput, {Return}
 	SendInput, ^{F7}
