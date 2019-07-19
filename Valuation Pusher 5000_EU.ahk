@@ -227,9 +227,9 @@ return
 
 vanilla_round:
 ~LButton & v::
-	Altkey := GetKeyState("Alt")
+	Shiftkey := GetKeyState("Shift")
 	Cntrlkey := GetKeyState("LCtrl") 
-	if (Altkey == 1 && Cntrlkey == 1) 
+	if (Shiftkey == 1 && Cntrlkey == 1) 
 	{
 		IfWinActive, Fight Club - Google Chrome
 		{

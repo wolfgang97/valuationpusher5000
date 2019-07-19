@@ -103,8 +103,9 @@ open_round_details(FC_round_info)
 	SendInput, {Escape}
 	SendInput, {Tab 7}
 	SendInput, {Enter}
-	Sleep, 5000
+	Sleep, 200
 	SendInput, #{Up}
+	Sleep, 5000
 	return
 }
 
@@ -126,11 +127,21 @@ get_funding_use(round_note)
 		test_str := Trim(test_str)
 		match1 := "use"
 		match2 := "utilize"
+		match3 := "used"
+		match4 := "utilized"
 		if test_str = %match1%
 		{
 			return usage_str
 		}
 		if test_str = %match2%
+		{
+			return usage_str
+		}
+		if test_str = %match3%
+		{
+			return usage_str
+		}
+		if test_str = %match4%
 		{
 			return usage_str
 		}

@@ -12,6 +12,7 @@ PROJECT ROADMAP
 [x] Break Helper Functions out into new script
 [x] Change searches on "Stock split" to "Pages"
 [x] Use if WinExist to make sure that scripts are only running in "Fight Club - Google Chrome" and "PitchBook RTS - Google Chrome"
+[] Take out Past Common Shares before pushing the valuation
 
 [] Exceptions:
 	[] Handle unknown share price case (OIP is blank)
