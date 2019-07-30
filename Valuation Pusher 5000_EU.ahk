@@ -246,10 +246,11 @@ vanilla_round:
 			open_round_details(FC_round_info)
 			round_note := get_round_note()
 			Sleep, 1000
-			refresh_RTS() 
-			if (last_round(FC_round_info) = 1)
+			refresh_RTS()
+			is_last_round := last_round(FC_round_info)
+			if (is_last_round = 1)
 			{
-				add_finstat_note()
+				add_finstat_note(round_note)
 			}
 		}
 		return
@@ -287,7 +288,7 @@ dummy_round:
 	SendInput, Euros
 	SendInput, {Tab}
 	Gosub, auto_timestamp
-	SendInput, FC Dummy Round. ///
+	SendInput, Added via France Valuations Ops. ///
 return
 
 ; Estimated Round Details: Shift + Control + `

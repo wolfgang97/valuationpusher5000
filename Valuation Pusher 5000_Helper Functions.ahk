@@ -105,6 +105,7 @@ open_round_details(FC_round_info)
 	SendInput, {Enter}
 	Sleep, 200
 	SendInput, #{Up}
+	WinActivate, Round Details - Google Chrome
 	Sleep, 5000
 	return
 }
@@ -126,9 +127,14 @@ get_funding_use(round_note)
 		test_str := usage_str_array[A_Index]
 		test_str := Trim(test_str)
 		match1 := "use"
-		match2 := "utilize"
-		match3 := "used"
-		match4 := "utilized"
+		match2 := "used"
+		match3 := "uses"
+		match4 := "utilize"
+		match5 := "utilized"
+		match6 := "utilizes"
+		match7 := "enables"
+		match8 := "enable"
+		match9 := "enabled"
 		if test_str = %match1%
 		{
 			return usage_str
@@ -142,6 +148,26 @@ get_funding_use(round_note)
 			return usage_str
 		}
 		if test_str = %match4%
+		{
+			return usage_str
+		}
+		if test_str = %match5%
+		{
+			return usage_str
+		}
+		if test_str = %match6%
+		{
+			return usage_str
+		}
+		if test_str = %match7%
+		{
+			return usage_str
+		}
+		if test_str = %match8%
+		{
+			return usage_str
+		}
+		if test_str = %match9%
 		{
 			return usage_str
 		}
@@ -213,9 +239,11 @@ last_round(FC_round_info)
 	} 			
 	rounds.Pop()
 	last_round := rounds.Pop()
-	current_round := FC_round_info["Round #"]
-	MsgBox, %current_round%
-	if current_round = last_round
+	last_round += 0.0
+	current_round := StrReplace(FC_round_info["`r`nRound #"], "`r`n")
+	current_round := Trim(current_round)
+	current_round += 0.0
+	if (current_round == last_round)
 	{
 		return true
 	} 
@@ -225,7 +253,7 @@ last_round(FC_round_info)
 	}
 }
 
-add_finstat_note()
+add_finstat_note(round_note)
 {
 	SendInput, {PgUp 3}
 	MouseClick, Left, 680, 1025
@@ -239,7 +267,6 @@ add_finstat_note()
 	SendInput, ^a
 	SendInput, {BackSpace}
 	SendInput, %round_note%
-	SendInput, ^v
 	SendInput, ^s
 }
 
