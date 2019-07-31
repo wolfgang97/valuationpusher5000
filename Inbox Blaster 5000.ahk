@@ -38,6 +38,24 @@ early_stage:
 	SendInput, !3m
 return
 
+news_stuff:
+^+n::
+	SendInput, ^f
+	SendInput, +{Tab 3}
+	SendInput, {Return}
+	SendInput, {Down}
+	SendInput, {Return}
+	SendInput, {Tab 3}
+	SendInput, pb ne
+	SendInput, {Tab 2}
+	SendInput, margaret
+	SendInput, {Tab 3}
+	SendInput, {up 2}
+	Gosub, type_message
+	SendInput, +{Tab 7}
+	SendInput, {Return}
+return
+
 private_co:
 ^+e::
 	SendInput, ^f
