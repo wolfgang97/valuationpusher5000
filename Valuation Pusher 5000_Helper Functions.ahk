@@ -105,7 +105,7 @@ open_round_details(FC_round_info)
 	SendInput, {Enter}
 	Sleep, 200
 	SendInput, #{Up}
-	WinActivate, Round Details - Google Chrome
+	WinActivate,Round Details - Google Chrome
 	Sleep, 5000
 	return
 }
@@ -177,7 +177,7 @@ get_funding_use(round_note)
 
 get_round_note()
 {
-	IfWinActive, Round Details - Google Chrome
+	IfWinActive,Round Details - Google Chrome
 	{
 		SendInput, ^f
 		Sleep 200
