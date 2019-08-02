@@ -38,6 +38,32 @@ early_stage:
 	SendInput, !3m
 return
 
+bad_mail:
+^+q::
+	SendInput, ^{F2}
+	SendInput, !3m
+return
+
+survey_company:
+^+s::
+	SendInput, ^f
+	SendInput, +{Tab 3}
+	SendInput, {Return}
+	SendInput, {Down}
+	SendInput, {Return}
+	SendInput, {Tab 3}
+	SendInput, sf survey co
+	SendInput, {Tab 2}
+	SendInput, margaret
+	SendInput, {Tab 3}
+	SendInput, {up 2}
+	Gosub, type_message
+	SendInput, +{Tab 7}
+	SendInput, {Return}
+	SendInput, ^{F11}
+	SendInput, !3m
+return
+
 news_stuff:
 ^+n::
 	SendInput, ^f
@@ -49,11 +75,14 @@ news_stuff:
 	SendInput, pb ne
 	SendInput, {Tab 2}
 	SendInput, margaret
-	SendInput, {Tab 3}
+	SendInput, {Tab 4}
+	SendInput, {Left 1}
 	SendInput, {up 2}
 	Gosub, type_message
 	SendInput, +{Tab 7}
 	SendInput, {Return}
+	SendInput, ^{F4}
+	SendInput, !3m
 return
 
 private_co:

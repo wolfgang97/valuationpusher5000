@@ -386,7 +386,7 @@ Return
 
 Cannot_add_val:
 ::cav::
-	SendInput, {Text} Fight Club cannot add a valuation to the company at this time.
+	SendInput, {Text} Fight Club cannot obtain the information needed to add a valuation to the company at this time.
 	SendInput, {Space}
 	gosub, let_me_know
 Return
