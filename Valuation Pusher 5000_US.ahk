@@ -1,4 +1,4 @@
-﻿/*
+/*
 $$\    $$\          $$\                      $$\     $$\                           $$$$$$$\                      $$\                                 
 $$ |   $$ |         $$ |                     $$ |    \__|                          $$  __$$\                     $$ |                                
 $$ |   $$ |$$$$$$\  $$ |$$\   $$\  $$$$$$\ $$$$$$\   $$\  $$$$$$\  $$$$$$$\        $$ |  $$ |$$\   $$\  $$$$$$$\ $$$$$$$\   $$$$$$\   $$$$$$\        
@@ -265,12 +265,9 @@ act_log_settings:
 	SendInput, l
 	SendInput {Tab}
 	SendInput, n
-	SendInput {Tab 6}
+	SendInput {Tab 9}
 	Gosub, timestamp_initials
 	Gosub, client_request
-	SendInput, {space}
-	SendInput, {Tab 4}
-	SendInput, {Enter}
 return
 
 amendment_tranching:
@@ -328,19 +325,41 @@ amendment_unwind:
 ::rewq::
 	SendInput, {Click 2}
 	SendInput, ^x
+	SendInput, ^f
+	Sleep, 1000
+	SendInput, type
+	Sleep, 1000
+	SendInput, {Escape}
+	SendInput, 	+{Tab 8}
+	SendInput, ^v
+	SendInput, ^f
+	Sleep, 1000
+	SendInput, stock split
+	Sleep, 1000
+	SendInput, {Tab}
+	SendInput, {Enter}
+	SendInput, {Escape}
+	SendInput, +{Tab}
+	Sleep, 500
+	SendInput, ^{Left 2}
+	Sleep, 500
+	SendInput, {Left}
+	SendInput, ^+{Left}
+	SendInput, ^x
 	SendInput, {Tab 3} 
 	SendInput, {Down 1}
 	SendInput, ^v
 	SendInput, {Up 1}
-	SendInput, +{Tab 3} 
-	SendInput, {Left 7} 
-	SendInput, {Click 2} 
+	SendInput, +{Tab 3}
+	SendInput, ^{Left} 
+	SendInput, {Left}
+	SendInput, ^+{Left}
 	SendInput, ^x
 	SendInput, {Tab 3} 
 	SendInput, ^v
 	SendInput, +{Tab 3} 
-	SendInput, {Left 18}
-	SendInput, {Click 2}
+	SendInput, ^{Left 3}
+	SendInput, ^+{Right}
 	SendInput, ^x
 	SendInput, +{Tab 3}
 	SendInput, ^v
@@ -351,6 +370,7 @@ amendment_unwind:
 	SendInput, +{Tab 4} 
 	SendInput, ^v
 Return
+
 
 ;______________SECTION: ClIENT RESPONSE SHORTCUTS___________________________
 
